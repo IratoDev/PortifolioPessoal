@@ -1,0 +1,34 @@
+.ContatcComponet {
+  padding: 0 0.5rem;
+}
+.ContatcComponet .ConteinerContatcComponet {
+  display: flex;
+  align-items: center;
+}
+.ContatcComponet .ConteinerContatcComponet .BoxIconeContatcComponet {
+  padding: 0 0.5rem;
+}
+.ContatcComponet .ConteinerContatcComponet .BoxIconeContatcComponet div {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: var(--ColorSecundaria);
+}
+.ContatcComponet .ConteinerContatcComponet .BoxIconeContatcComponet div svg {
+  fill: var(--ColorWhite);
+  min-width: 100%;
+  height: auto;
+}
+.ContatcComponet .ConteinerContatcComponet .BoxtextContatcComponet {
+  color: var(--ColorWhite);
+  padding: 0 0.5rem;
+}
+.ContatcComponet .ConteinerContatcComponet .BoxtextContatcComponet h5 {
+  font-size: 1em;
+}
+.ContatcComponet .ConteinerContatcComponet .BoxtextContatcComponet p {
+  font-size: 0.9em;
+  text-wrap: wrap;
+}/*# sourceMappingURL=Style.module.css.map */

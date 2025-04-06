@@ -1,0 +1,53 @@
+.ActiveSkills:hover {
+  background: var(--ColorSecundaria);
+}
+.ActiveSkills:hover > * .IconSkill {
+  position: absolute;
+  top: -1rem;
+  filter: drop-shadow(1px 1px 0.5rem #000);
+  scale: 1.2;
+}
+.ActiveSkills:hover > * p {
+  color: var(--ColorWhite) !important;
+}
+
+.SkillsComponet {
+  width: 100%;
+  border-radius: 20px;
+  background: var(--ColorTerciaria);
+  border: 1px solid var(--ColorWhite);
+  cursor: pointer;
+}
+.SkillsComponet .ConteinerSkillsComponets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5rem 1rem;
+}
+.SkillsComponet .ConteinerSkillsComponets .IconSkill {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 50px;
+  height: auto;
+}
+.SkillsComponet .ConteinerSkillsComponets .IconSkill svg {
+  width: 100%;
+  height: auto;
+}
+.SkillsComponet .ConteinerSkillsComponets .BoxPorcentagemSkills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.SkillsComponet .ConteinerSkillsComponets .BoxPorcentagemSkills p {
+  color: #747779;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 800;
+}/*# sourceMappingURL=Style.module.css.map */

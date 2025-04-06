@@ -1,0 +1,51 @@
+
+.ContatcComponet{
+
+padding: 0 0.5rem;
+
+.ConteinerContatcComponet{
+
+display: flex;
+align-items: center;
+
+.BoxIconeContatcComponet{
+
+padding: 0 0.5rem;
+
+
+div{
+display: flex;
+align-items: center;
+width: 50%;
+padding: 1rem;
+border-radius: 50%;
+background-color: var(--ColorSecundaria);
+svg{
+fill: var(--ColorWhite);
+min-width: 100%;
+height: auto;
+}
+
+}
+
+}
+
+.BoxtextContatcComponet{
+
+color: var(--ColorWhite);
+padding: 0 0.5rem;
+
+h5{
+font-size: 1em;
+}
+
+p{
+font-size: 0.9em;
+text-wrap: wrap;
+}
+
+}
+
+}
+
+}

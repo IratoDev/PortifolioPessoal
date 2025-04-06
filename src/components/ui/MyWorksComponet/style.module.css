@@ -1,0 +1,114 @@
+.MyWorkConteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.MyWorkConteiner nav {
+  display: inline-block;
+  padding: 1em;
+  background-color: #000;
+  border-radius: 999px;
+  z-index: 4;
+}
+.MyWorkConteiner nav .ConteinerNavWork {
+  display: flex;
+  padding: 0 10px;
+  gap: 0.5em;
+}
+.MyWorkConteiner nav .ConteinerNavWork button {
+  padding: 0.5em;
+  background: none;
+  border: none;
+  color: var(--ColorWhite);
+  cursor: pointer;
+}
+.MyWorkConteiner .BoxWork {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3em;
+  position: relative;
+  padding: 0 1rem;
+}
+.MyWorkConteiner .BoxWork:before {
+  content: "";
+  position: absolute;
+  left: auto;
+  right: auto;
+  width: 35%;
+  height: 55vh;
+  border-radius: 50%;
+  background: linear-gradient(260deg, var(--ColorSecundaria) 0, rgba(115, 67, 210, 0) 100%);
+  filter: blur(150px);
+}
+.MyWorkConteiner .BoxWork:after, .MyWorkConteiner .BoxWork :before {
+  --tw-content: "";
+}
+.MyWorkConteiner .BoxWork *, .MyWorkConteiner .BoxWork :after, .MyWorkConteiner .BoxWork :before {
+  box-sizing: border-box;
+  border: 0 solid #e5e7eb;
+}
+
+.MyWorkComponet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--ColorTerciaria);
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid red !important;
+}
+.MyWorkComponet .ConteinerMyWorkComponet {
+  position: relative;
+  padding: 0.5rem;
+  height: 100%;
+  border: 1px solid blue;
+}
+.MyWorkComponet .ConteinerMyWorkComponet:hover .BoxTextWorkComponent {
+  opacity: 1;
+  transform: translateY(10px);
+  transition: all 0.5s ease-in;
+}
+.MyWorkComponet .ConteinerMyWorkComponet img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid yellow;
+}
+.MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent {
+  position: absolute;
+  color: var(--ColorWhite);
+  left: 1rem;
+  bottom: 2rem;
+  padding: 1em;
+  background-color: var(--ColorSecundaria);
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent h3 {
+  font-size: 2em;
+}
+.MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent a {
+  font-size: 1em;
+  color: var(--ColorWhite);
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .MyWorkComponet .ConteinerMyWorkComponet {
+    padding: 0.5rem;
+  }
+  .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent {
+    bottom: -2rem;
+    padding: 0.5em;
+  }
+  .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent h3 {
+    font-size: 1.5em;
+  }
+  .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent a {
+    font-size: 0.9em;
+  }
+}/*# sourceMappingURL=style.module.css.map */

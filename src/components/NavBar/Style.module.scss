@@ -1,0 +1,209 @@
+header{
+
+position: absolute;
+z-index: 100000;
+top: 0;
+width: 100%;
+padding: 0.5rem 0;
+
+.ConteinerHeader{
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+padding: 0 2rem;
+border-radius: 20px;
+background-color: var(--ColorTerciaria);
+
+.ConteinerLogo{
+
+width: 100%;
+padding: 0 1rem;
+max-width: 200px;
+min-width: 180px;
+
+img{
+width: 100%;
+height: 100%;
+}
+
+}
+
+nav{
+
+display: flex;
+padding: 0 0.5em;
+gap: clamp(0.5rem, 2vw,1.5em);
+
+button{
+
+font-size: clamp(1rem, 2vw, 1.5rem);
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+color: var(--ColorSecundaria);
+border: none;
+background: none;
+cursor: pointer;
+
+}
+
+}
+
+.ConteinerRedeSocial{
+
+display: flex;
+gap: 0.5em;
+
+}
+
+.ConteinerButtonMobile{
+
+display: flex;
+align-items: center;
+justify-content: end;
+padding: 0 20px;
+width: 100%;
+
+button{
+
+padding: 1em;
+width: 100%;
+max-width: 80px;
+border-radius: 10px;
+background-color: var(--ColorQuaternario);
+border: none;
+
+svg{
+width: 100%;
+max-width: 80px;
+height: auto;
+color:var(--ColorSecundaria);
+}
+}
+
+}
+
+}
+
+}
+
+.MenuMobile{
+
+position: fixed;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+z-index: 100000;
+right: 0;
+top: 0;
+width: 100%;
+height: 100%;
+
+background-color: var(--ColorTerciaria);
+
+.ConteinerCloseButton{
+
+padding: 1rem 0;
+button{
+
+border: none;
+background: none;
+cursor: pointer;
+
+svg{
+fill: var(--ColorSecundaria) !important;
+width: 50px;
+height: 50px;
+}
+
+}
+
+}
+
+.ConteinerHeader{
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 1rem;
+align-items: center;
+
+padding: 1rem 2rem;
+border-radius: 20px;
+
+.ConteinerLogo{
+
+width: 100%;
+padding: 0 1rem;
+max-width: 200px;
+min-width: 180px;
+
+img{
+width: 100%;
+height: 100%;
+}
+
+}
+
+nav{
+
+display: flex;
+flex-direction: column;
+padding: 0 0.5em;
+gap: clamp(0.5rem, 2vw,1.5em);
+
+button{
+
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+color: var(--ColorSecundaria);
+border: none;
+background: none;
+cursor: pointer;
+
+}
+
+}
+
+.ConteinerRedeSocial{
+
+display: flex;
+gap: 0.5em;
+
+}
+
+.ConteinerButtonMobile{
+
+display: flex;
+align-items: center;
+justify-content: end;
+padding: 0 20px;
+width: 100%;
+
+button{
+
+padding: 1em;
+width: 100%;
+max-width: 80px;
+border-radius: 10px;
+background-color: var(--ColorQuaternario);
+border: none;
+
+svg{
+width: 100%;
+max-width: 80px;
+height: auto;
+color:var(--ColorSecundaria);
+}
+}
+
+}
+
+}
+
+}

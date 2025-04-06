@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Sora:wght@100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+}
+
+:root{
+
+--ColorPrimaria:#140C1C;
+--ColorSecundaria:#8750F7;
+--ColorTerciaria: #272730;
+--ColorQuaternario: #3C3838;
+--ColorRodape: #0F0715;
+
+--ColorWhite:#fff;
+
+}
+
+body{
+
+font-family: "Sora", sans-serif;
+background-color: var(--ColorTerciaria);
+
+}

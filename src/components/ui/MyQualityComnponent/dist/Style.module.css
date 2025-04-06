@@ -1,0 +1,12 @@
+.ComponentMyQuality {
+  width: 100%;
+  max-width: 1230px;
+  padding: 3em 0;
+}
+.ComponentMyQuality .ConteinerMyQuality {
+  display: flex;
+  padding: 0.5em 30px;
+}
+.ComponentMyQuality .ConteinerMyQuality .BoxTextMyQuality p {
+  font-size: 11;
+}

@@ -1,0 +1,122 @@
+
+.ComponentMyQuality{
+
+width: 100%;
+
+margin: 0 auto;
+border-bottom: 1px solid var(--ColorSecundaria);
+cursor: pointer;
+
+.ConteinerMyQuality{
+
+padding: 2rem 1rem;
+
+.BoxMyQuality{
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+gap: 1rem;
+color: var(--ColorWhite);
+
+.conteinerTextMyQuality{
+
+display: flex;
+align-items: center;
+max-width: 90%;
+gap: 2rem;
+
+h3{
+font-size: 2em;
+color: var(--ColorSecundaria);
+}
+
+h1{
+font-size: 2em;
+}
+
+p{
+font-size: 1em;
+}
+}
+
+.BoxIconeArrow{
+
+min-width: 50px;
+min-height: 50px;
+
+svg{
+fill: var(--ColorSecundaria);
+width: 100%;
+height: 100%;
+transform: rotate(90deg);
+}
+
+}
+
+}
+
+}
+
+}
+
+.focused {
+background-color: var(--ColorSecundaria);
+border-bottom: 1px solid var(--ColorWhite);
+    
+.ConteinerMyQuality .BoxMyQuality .conteinerTextMyQuality h3{
+color: var(--ColorWhite);
+}
+    
+.ConteinerMyQuality 
+.BoxMyQuality 
+.BoxIconeArrow svg{
+fill: var(--ColorWhite);
+transform: rotate(0deg);
+transition: transform 0.5s ease-in-out;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+.ComponentMyQuality{
+
+.ConteinerMyQuality{
+
+padding: 1rem 0.5rem;
+
+.BoxMyQuality{
+
+gap: 1rem;
+
+.conteinerTextMyQuality{
+
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+max-width: 100%;
+gap: 0.5rem;
+
+h3{
+font-size: 1.5em;
+
+}
+
+h1{
+font-size: 1.5em;
+}
+
+p{
+font-size: 0.9em;
+}
+}
+
+
+}
+
+}
+
+}
+
+}
