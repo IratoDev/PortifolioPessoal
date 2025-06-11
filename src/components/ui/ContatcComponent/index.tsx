@@ -1,6 +1,15 @@
+import { ReactNode } from "react";
 import Style from "./Style.module.css"
 
-export function ContatcComponente({IconeContatc, Contatc, Text}){
+type Contact = {
+
+IconeContatc:ReactNode;
+Contatc:string;
+Text:string;
+
+}
+
+export function ContatcComponente({IconeContatc, Contatc, Text}:Contact){
 
 return(
 

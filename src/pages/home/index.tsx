@@ -1,8 +1,11 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext,ChangeEvent, FormEvent } from "react";
 import Style from './Style.module.css';
 import Figuri from "../../assets/imagens/figuriHome.gif";
+import { toast } from "sonner";
 import 'devicon/devicon.min.css';
-import { ContextMenuMobile } from "../../Context/ContextApi";
+import { Context } from "../../Context/ContextApi";
+import { useLocation } from "react-router-dom";
+import { setupApiClient } from "../../service/api";
 
 //icones
 import { FaPhoneFlip } from "react-icons/fa6";//telefone
@@ -42,37 +45,106 @@ const SkilsList = [
 ];
     
 const [currentIndex, setCurrentIndex] = useState(1);
-const slideRef = useRef();
-const {MenuMobile} = useContext(ContextMenuMobile);
+const slideRef = useRef<HTMLDivElement | null>(null);
+const {MenuMobile} = useContext(Context);
 const isTransitioning = useRef(false);
-const extendedSlides = [...SkilsList, SkilsList[0]];
+const extendedSlides = [...SkilsList, SkilsList[0]];    
+const location = useLocation();
 
-    
+const [Nome, setNome] = useState('');
+const [Sobrenome, setSobrenome] = useState('');
+const [Email, setEmail] = useState('');
+const [Telefone, setTelefone] = useState('');
+const [Mensagem, setMensagem] = useState('');
+const [ServiceSelected, setServiceSelected] = useState<string>("selecione uma opção");
+const [isLoading, setIsLoading] = useState(false);
+
+
 useEffect(() => {
-        const interval = setInterval(() => {
-          if (!isTransitioning.current) {
-            setCurrentIndex((prevIndex) => prevIndex + 1);
-          }
-        }, 1000);
-    
-        return () => clearInterval(interval);
+const interval = setInterval(() => {
+  if (!isTransitioning.current) {
+    setCurrentIndex((prevIndex) => prevIndex + 1);
+  }
+}, 1000)
+
+return () => {
+clearInterval(interval)
+}
 }, []);
     
 useEffect(() => {
-        if (!slideRef.current) return;
+        const slide = slideRef.current;
+        if (!slide) return;
     
-        slideRef.current.style.transform = `translateX(${-currentIndex * 10}%)`;
+        slide.style.transform = `translateX(${-currentIndex * 10}%)`;
     
         if (currentIndex === SkilsList.length) {
           isTransitioning.current = true;
           setTimeout(() => {
-            slideRef.current.style.transition = "transform 0.5s ease-in-out";
+            slide.style.transition = "transform 0.5s ease-in-out";
             setCurrentIndex(0);
             isTransitioning.current = false;
           }, 100);
         }
 }, [currentIndex]);
 
+useEffect(() => {
+  const hash = location.hash;
+  if (hash) {
+    const target = document.querySelector(hash);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 100); // delay para garantir montagem
+    }
+  }
+}, [location]);
+
+function handleChangeService(event: ChangeEvent<HTMLSelectElement>) {
+setServiceSelected(String(event.target.value));
+}
+
+async function handleEnviaEmail(event: FormEvent) {
+    
+event.preventDefault();
+
+if (Nome === "" || Email === "" || Sobrenome === "" || Telefone === "") {
+toast.error("Preencha todos os campos");
+return;
+}
+
+const data = {
+nome: Nome,
+email: Email,
+sobrenome: Sobrenome,
+telefone: Telefone,
+mensagem: Mensagem,
+servico: ServiceSelected
+};
+
+setIsLoading(true);
+console.log("esse é o objeto:",data)
+
+try {
+const apiClient = setupApiClient();
+await apiClient.post('/envio', data);
+setNome('');
+setSobrenome('');
+setEmail('');
+setTelefone('');
+setMensagem('');
+setServiceSelected("selecione uma opção");
+toast.success('Mensagem enviada com sucesso!');
+
+(event.target as HTMLFormElement).reset()
+
+} catch (err:any) {
+console.error('Erro:', err.response?.data || err.message);
+toast.error("Ops! erro ao enviar mensagem ");
+}finally {
+setIsLoading(false);
+}
+}
 
 return(
 
@@ -82,7 +154,7 @@ return(
 
 <main>
     {/* seção home */}
-    <section id={Style.Home}>
+    <section id="Home" className={Style.Home}>
 
         <div className={Style.ConteinerHome}>
 
@@ -102,7 +174,7 @@ return(
                     {extendedSlides.map((item, index)=>{
                         
                         return(
-                            <SkillsComponet key={index} iconeSkill={<img src={item.imagem}/>} porcentagem=""/>
+                            <SkillsComponet key={index} skillActive=".teste" children={""} iconeSkill={<img src={item.imagem}/>} porcentagem=""/>
                         )
                         
                     })}
@@ -127,7 +199,7 @@ return(
     {/*seção home */}
 
     {/* seção MyQuality */}
-    <section id={Style.MyQuality}>
+    <section id="MyQuality" className={Style.MyQuality} >
         <div className={Style.ConteinerMyQuality}>
             <div className={Style.conteinerTextQuality}>
                 <div className={Style.BoxTextMyQuality}>
@@ -146,7 +218,7 @@ return(
      {/*seção MyQuality */}
 
     {/* seção MyWork */}
-    <section id={Style.MyWork}>
+    <section id="MyWork" className={Style.MyWork}>
         <div className={Style.ConteinerMyWork}>
             <div className={Style.ConteinerTextMyWork}>
                 <div className={Style.BoxTextMyWork}>
@@ -162,7 +234,7 @@ return(
      {/*seção MyWork */}
 
     {/* seção MySkills */}
-    <section id={Style.MySkills}>
+    <section id="MySkills" className={Style.MySkills}>
         <div className={Style.ConteinerMySkills}>
             <div className={Style.ConteinerTextMySkills}>
                 <div className={Style.BoxTextMySkills}>
@@ -190,7 +262,7 @@ return(
      {/*seção MySkills */}
 
     {/* seção Contact */}
-    <section id={Style.Contact}>
+    <section id="Contact" className={Style.Contact} >
 
         <div className={Style.ConteinerContatc}>
             <div className={Style.ConteinerFormulario}>
@@ -200,25 +272,25 @@ return(
                         <h2>Vamos trabalhar juntos!</h2>
                         <p>Eu desenho e codifico coisas lindamente simples e adoro o que faço. Apenas simples assim!</p>
                     </div>
-                    <form>
+                    <form onSubmit={handleEnviaEmail}>
                         <div className={Style.Boxinput}>
-                            <input type="text"  placeholder="Nome" name="Nome"/>
-                            <input type="text"  placeholder="Sobrenome" name="Sobrenome"/>
-                            <input type="text"  placeholder="Email" name="Email"/>
-                            <input type="text"  placeholder="Telefone" name="Telefone"/>
+                            <input onChange={(e) => setNome(e.target.value)} type="text"  placeholder="Nome" name="Nome"/>
+                            <input onChange={(e) => setSobrenome(e.target.value)} type="text"  placeholder="Sobrenome" name="Sobrenome"/>
+                            <input onChange={(e) => setEmail(e.target.value)} type="text"  placeholder="Email" name="Email"/>
+                            <input onChange={(e) => setTelefone(e.target.value)} type="text"  placeholder="Telefone" name="Telefone"/>
                         </div>
 
                         
-                            <select>
+                            <select value={ServiceSelected} onChange={handleChangeService}>
                                 <option value="0">Selecione um opção</option>
-                                <option value="1">Desenvolvimento de projeto</option>
-                                <option values="2">Suporte</option>
+                                <option value="Desenvolvimento de projeto">Desenvolvimento de projeto</option>
+                                <option value="Suporte">Suporte</option>
                             </select>
                                 
-                        <textarea placeholder="mensagem" />
+                        <textarea placeholder="mensagem" onChange={(e) => setMensagem(e.target.value)} />
                        
 
-                        <button type="submit">Enviar mensagem</button>
+                        <button type="submit" disabled={isLoading} className={isLoading ? Style.loadingButton : ''}>{isLoading ? "Enviando..." : "Enviar mensagem"}</button>
 
                     </form>
                 </div>

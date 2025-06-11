@@ -1,18 +1,21 @@
 import {BrowserRouter,Routes, Route} from "react-router-dom";
 
 import { NavBar } from "./components/NavBar";
+import { ButtonUpPage } from "./components/ui/ButtonUpPage";
 import Home from "./pages/home/index"
 
-import { ContextMenuMobileProvider } from "./Context/ContextApi";
+import { ContextProvider } from "./Context/ContextApi";
 
 export default function AppRouter(){
 
 return(
 <BrowserRouter>
 
-<ContextMenuMobileProvider>
+<ContextProvider>
 
 <NavBar/>
+
+<ButtonUpPage/>
 
 <Routes>
 
@@ -20,7 +23,7 @@ return(
 
 </Routes>
 
-</ContextMenuMobileProvider>
+</ContextProvider>
 
 </BrowserRouter>
 )

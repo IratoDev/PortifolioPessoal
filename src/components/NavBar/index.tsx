@@ -1,6 +1,7 @@
 import Style from "./Style.module.css"
 import { useState,useEffect, useContext } from "react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 /*icones*/
 import { GrInstagram } from "react-icons/gr";
@@ -9,7 +10,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { IoMdClose } from "react-icons/io";
 
-import { ContextMenuMobile } from "../../Context/ContextApi";
+import { Context } from "../../Context/ContextApi";
 
 /*Componets*/
 import { SocialNetworkComponet } from "../ui/SocialNetworkComponent";
@@ -17,7 +18,7 @@ import Logo from "../../assets/imagens/logo.png"
 
 export function NavBar(){
 
-const [WitdhWindow, setWitdhWindow] = useState("");
+const [WitdhWindow, setWitdhWindow] = useState(Number);
 
 useEffect(()=>{
 
@@ -41,7 +42,7 @@ return () => {
 },[WitdhWindow]);
 
 
-const NavBar = WitdhWindow < "850" ? <NavMobile/> : <NavDesktop/>
+const NavBar = WitdhWindow < 850 ? <NavMobile/> : <NavDesktop/>
 
 return(
 
@@ -57,6 +58,11 @@ return(
 
 export function NavDesktop(){
 
+const navigate = useNavigate();
+const navegarParaSecao = (id:string) => {
+  navigate(`/#${id}`);
+};
+
 return(
 
 <>
@@ -65,11 +71,11 @@ return(
     <div className={Style.ConteinerHeader}>
         <div className={Style.ConteinerLogo}><img src={Logo} alt="Logo"/></div>
         <nav>
-            <button>Home</button>
-            <button>Sobre Mim</button>
-            <button>Meus Trabalhos</button>
-            <button>Minhas Skills</button>
-            <button>Contato</button>
+            <button onClick={() => navegarParaSecao("Home")}>Home</button>
+            <button onClick={() => navegarParaSecao("Sobre")}>Sobre Mim</button>
+            <button onClick={() => navegarParaSecao("MyWork")}>Meus Trabalhos</button>
+            <button onClick={() => navegarParaSecao("MySkills")}>Minhas Skills</button>
+            <button onClick={() => navegarParaSecao("Contact")}>Contato</button>
         </nav>
         <div className={Style.ConteinerRedeSocial}>
             <SocialNetworkComponet icon={<GrInstagram/>}/>
@@ -87,7 +93,7 @@ return(
 
 export function NavMobile(){
 
-const {handleMenuMobile} = useContext(ContextMenuMobile);
+const {handleMenuMobile} = useContext(Context);
 
 return(
 
@@ -110,7 +116,12 @@ return(
 
 export function ComponetMenuMobile(){
 
-const {handleMenuMobile} = useContext(ContextMenuMobile);
+const {handleMenuMobile} = useContext(Context);
+
+const navigate = useNavigate();
+const navegarParaSecao = (id:string) => {
+  navigate(`/#${id}`);
+};
 
 return(
 
@@ -125,11 +136,11 @@ return(
 <div className={Style.ConteinerHeader}>
 <div className={Style.ConteinerLogo}><img src={Logo} alt="Logo"/></div>
 <nav>
-<button>Home</button>
-<button>Sobre Mim</button>
-<button>Meus Trabalhos</button>
-<button>Minhas Skills</button>
-<button>Contato</button>
+<button onClick={() =>{ navegarParaSecao("Home"); handleMenuMobile();}}>Home</button>
+<button onClick={() =>{ navegarParaSecao("Sobre"); handleMenuMobile();}}>Sobre Mim</button>
+<button onClick={() =>{ navegarParaSecao("MyWork"); handleMenuMobile();}}>Meus Trabalhos</button>
+<button onClick={() =>{ navegarParaSecao("MySkills"); handleMenuMobile();}}>Minhas Skills</button>
+<button onClick={() =>{ navegarParaSecao("Contact"); handleMenuMobile();}}>Contato</button>
 </nav>
 <div className={Style.ConteinerRedeSocial}>
 <SocialNetworkComponet icon={<GrInstagram/>}/>

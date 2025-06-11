@@ -1,3 +1,24 @@
+.BoxTextWorkComponentActive {
+  position: absolute;
+  color: var(--ColorWhite);
+  right: -1rem;
+  bottom: -2rem;
+  padding: 1em;
+  background-color: var(--ColorSecundaria);
+  border-radius: 20px;
+  opacity: 1;
+  transform: translateY(10px);
+  transition: all 0.5s ease-in;
+}
+.BoxTextWorkComponentActive h3 {
+  font-size: 1.5em;
+}
+.BoxTextWorkComponentActive a {
+  font-size: 1em;
+  color: var(--ColorWhite);
+  text-decoration: none;
+}
+
 .MyWorkConteiner {
   display: flex;
   flex-direction: column;
@@ -59,23 +80,15 @@
   background-color: var(--ColorTerciaria);
   width: 100%;
   max-width: 400px;
-  border: 1px solid red !important;
 }
 .MyWorkComponet .ConteinerMyWorkComponet {
   position: relative;
   padding: 0.5rem;
   height: 100%;
-  border: 1px solid blue;
-}
-.MyWorkComponet .ConteinerMyWorkComponet:hover .BoxTextWorkComponent {
-  opacity: 1;
-  transform: translateY(10px);
-  transition: all 0.5s ease-in;
 }
 .MyWorkComponet .ConteinerMyWorkComponet img {
   width: 100%;
   height: 100%;
-  border: 1px solid yellow;
 }
 .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent {
   position: absolute;
@@ -89,10 +102,10 @@
   transform: translateY(30px);
 }
 .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent h3 {
-  font-size: 2em;
+  font-size: 1em;
 }
 .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent a {
-  font-size: 1em;
+  font-size: 0.5em;
   color: var(--ColorWhite);
   text-decoration: none;
 }
@@ -109,6 +122,15 @@
     font-size: 1.5em;
   }
   .MyWorkComponet .ConteinerMyWorkComponet .BoxTextWorkComponent a {
+    font-size: 0.9em;
+  }
+  .BoxTextWorkComponentActive {
+    padding: 0.5rem;
+  }
+  .BoxTextWorkComponentActive h3 {
+    font-size: 1.5em;
+  }
+  .BoxTextWorkComponentActive a {
     font-size: 0.9em;
   }
 }/*# sourceMappingURL=style.module.css.map */

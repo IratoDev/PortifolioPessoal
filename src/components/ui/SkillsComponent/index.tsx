@@ -1,6 +1,16 @@
+import { ReactNode } from "react";
 import Style from "./Style.module.css"
 
-export function SkillsComponet({skillActive,iconeSkill,porcentagem, children}){
+type SkillsProps ={
+
+skillActive:string;
+iconeSkill:ReactNode;
+porcentagem:string;
+children?:ReactNode;
+
+}
+
+export function SkillsComponet({skillActive,iconeSkill,porcentagem, children}:SkillsProps){
 
 return(
 

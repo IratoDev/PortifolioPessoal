@@ -9,7 +9,7 @@ to{
 }
 }
 
-#Home{
+.Home{
 
 width: 100%;
 padding: 2rem 0;
@@ -105,7 +105,7 @@ object-fit: cover;
 
 }
 
-#MyQuality {
+.MyQuality {
 
 width: 100%;
 padding: 3em 0;
@@ -154,7 +154,7 @@ list-style: none;
 }
 }
   
-#MyWork {
+.MyWork {
 
 width: 100%;
 padding: 3em 0;
@@ -203,7 +203,7 @@ padding: 1em 2rem;
 }
 }
   
-#MySkills {
+.MySkills {
 
 width: 100%;
 padding: 3rem 0;
@@ -262,7 +262,7 @@ width: 15.555%;
 
 }
   
-#Contact{
+.Contact{
 
 width: 100%;
 padding: 3em 0;
@@ -443,7 +443,7 @@ color: var(--ColorWhite);
 /*Home*/
 @media screen and (max-width: 850px) {
 
-#Home{ 
+.Home{ 
 
 margin-top: 4rem;
 
@@ -472,7 +472,7 @@ text-align: center;
 /*MyWork*/
 @media screen and (max-width: 768px) {
 
-#MyWork .ConteinerMyWork {
+.MyWork .ConteinerMyWork {
 padding: 0 1rem;
 
 .ConteinerWork {
@@ -487,7 +487,7 @@ padding: 1rem 1rem;
 /*MyQuality*/
 @media screen and (max-width: 768px) {
 
-#MyQuality .ConteinerMyQuality {
+.MyQuality .ConteinerMyQuality {
         
 padding: 0 1rem;
 }
@@ -497,7 +497,7 @@ padding: 0 1rem;
 /*Myskylls*/
 @media screen and (max-width: 760px) {
 
-#MySkills .ConteinerMySkills {
+.MySkills .ConteinerMySkills {
 padding: 0 1rem;
 
 .ConteinerSkills{
@@ -523,7 +523,7 @@ width: 25.555%;
 /*contato*/
 @media screen and (max-width: 850px) {
     
-#Contact .ConteinerContatc {
+.Contact .ConteinerContatc {
 
 flex-direction: column;
 gap: 3rem;
